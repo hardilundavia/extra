@@ -1,0 +1,85 @@
+create table client_master(
+clientno varchar2 (6),
+name  varchar2 (20),
+address1  varchar2 (30),
+address2  varchar2 (30),
+city  varchar2 (15),
+pincode Number (8),
+state  varchar2 (15),
+baldue Number (10,2));
+
+create table product_master1(
+productno varchar2 (6),
+description varchar2 (15),
+profitpercent Number (4,2),
+unitmeasure varchar2 (10),
+qtyonhand Number (8),
+reorderval Number (8),
+sekkpeice Number (8,2),
+costprice Number (8,2));
+
+create table salesman_master(
+salesmanno varchar2 (6),
+salesmanname  varchar2 (20),
+address1  varchar2 (30),
+address2  varchar2 (30),
+city  varchar2 (20),
+pincode Number (8),
+state  varchar2 (20),
+salamt Number (8,2),
+tgttoget Number (6,2),
+ytdsales Number (6,2),
+remarks varchar2 (60));
+ 
+
+select * from tab;
+
+insert into client_master (clientno,name,city,pincode,state,baldue) values('c00001','korth sudarshan','mumbai',400054,'maharashtra',15000);
+
+insert into client_master (clientno,name,city,pincode,state,baldue) values('c00002','mamta majmudar','madras',780001,'tamilnadu',0);
+
+insert into client_master (clientno,name,city,pincode,state,baldue) values('c00003','chhaya bankar','mumbai',400057,'maharashtra',5000);
+
+insert into client_master (clientno,name,city,pincode,state,baldue) values('c00004','ashvini joshi','banglor',560001,'karnataka',0);
+
+insert into client_master (clientno,name,city,pincode,state,baldue) values('c00005','hansel colaco','mumbai',400060,'maharashtra',2000);
+
+insert into client_master (clientno,name,city,pincode,state,baldue) values('c00006','dipak sharma','manglore',560050,'karnataka',0);
+
+select * from client_master;
+
+insert into product_master1 (productno,description,profitpercent,unitmeasure,qtyonhand,reorderval,sekkpeice,costprice) values('p00001','t-short',5,'piece',200,50,350,250);
+
+insert into product_master1 (productno,description,profitpercent,unitmeasure,qtyonhand,reorderval,sekkpeice,costprice) values('p00002','shirt',6,'piece',150,50,500,350);
+
+insert into product_master1 (productno,description,profitpercent,unitmeasure,qtyonhand,reorderval,sekkpeice,costprice) values('p00003','cotton jeans',5,'piece',100,20,600,450);
+
+insert into product_master1 (productno,description,profitpercent,unitmeasure,qtyonhand,reorderval,sekkpeice,costprice) values('p07865','jeans',5,'piece',100,20,750,500);
+
+select * from product_master1;
+insert into product_master1 (productno,description,profitpercent,unitmeasure,qtyonhand,reorderval,sekkpeice,costprice) values('p07868','trousers',5,'piece',150,50,850,550);
+
+insert into salesman_master  values('s00001','aman','a/14','worli','mumbai',400002,'maharastra',3000,100,50,'good');
+insert into salesman_master  values('s00002','omkar','65','nariman','mumbai',400001,'maharastra',3000,200,100,'good');
+insert into salesman_master  values('s00003','ray','p-7','bandra','mumbai',400032,'maharastra',3000,200,100,'good');
+insert into salesman_master  values('s00004','ashish','a/5','juhu','mumbai',400044,'maharastra',3500,200,150,'good');
+
+
+select * from salesman_master;
+
+delete from salesman_master where salamt=3500;
+
+delete from product_master where qtyonhand=100;
+
+delete from client_master where state='tamil nadu';
+
+ALTER TABLE client_master ADD telephone number(10); 
+
+ALTER TABLE product_master MODIFY sellprice number(10,2);
+
+drop table client_master;
+
+rename salesman_master to sman_mast;
+
+
+
